@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <script src="https://rawgit.com/aframevr/aframe/master/dist/aframe-master.min.js"></script>
+    <script src="https://rawgit.com/protyze/aframe-curve-component/master/dist/aframe-curve-component.min.js"></script>
+    <script src="https://rawgit.com/protyze/aframe-alongpath-component/master/dist/aframe-alongpath-component.min.js"></script>
+  </head>
+  <body>
+    <a-scene inspector="https://cdn.jsdelivr.net/gh/aframevr/aframe-inspector@master/dist/aframe-inspector.min.js">
+      <a-assets>
+        <a-asset-item id="BirdRace" src="assets/BirdRaceBlockout_004.gltf"></a-asset-item>
+        </a-assets>
+        <a-entity gltf-model="#BirdRace" scale="0.5 0.5 0.5" modify-materials></a-entity>
+
+            <a-curve id="track1">
+              <a-curve-point position="-2 2 -3"></a-curve-point>
+              <a-curve-point position="0 1 -3"></a-curve-point>
+              <a-curve-point position="2 2 -3"></a-curve-point>
+            </a-curve>
+
+            <a-box alongpath="curve: #track1"></a-box>
+
+            <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
+
+            <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+
+            <a-sky color="#ECECEC"></a-sky>
+    </a-scene>
+  </body>
+</html>
