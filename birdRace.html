@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+ <script src="https://rawgit.com/aframevr/aframe/master/dist/aframe-master.min.js"></script>
+
+
+</head>
+
+<body>
+
+<a-scene inspector="https://cdn.jsdelivr.net/gh/aframevr/aframe-inspector@master/dist/aframe-inspector.min.js">
+
+ <!-- Place camera at ground level (will be overridden by VR devices) -->
+ <a-camera position="0 1.6 .8"></a-camera>
+<!-- Asset management system. -->
+ <a-assets>
+    <a-asset-item id="birdRaceTerrain" src="birdRaceTerrain_001.gltf"></a-asset-item>
+    <a-asset-item id="birdRacers" src="birdRacers_000.gltf"></a-asset-item>
+    <a-asset-item id="sunLight" src="birdRaceSunLight_000.gltf"></a-asset-item>
+ </a-assets>
+<!-- Scene. -->
+ <a-entity gltf-model="birdRaceTerrain" position="0 0 0"></a-entity>
+ <a-entity gltf-model="birdRacers" position="0 0 0"></a-entity>
+ <a-entity gltf-model="sunLight" position="0 0 0" rotation="0 0 30"></a-entity>
+ <a-sky color="#ffffff"></a-sky>
+
+</a-scene>
+
+</body>
+
+</html>
