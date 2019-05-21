@@ -2,12 +2,16 @@
   <head>
     <!-- CDN to engine -->
     <script src="https://aframe.io/releases/0.7.1/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/feiss/aframe-environment-component/76b2bbf3/aframe-environment-component.min.js"></script>
   </head>
   <body>
      <!-- Open a scene  - add fog -->
-    <a-scene fog="type: exponential; density: 0.08; color: #808080;">
+    <a-scene>
+    <a-entity environment="preset: yavapai; lighting: distant; groundColor: #449; grid: cross"></a-entity>
+
     <!-- camera -->
-      <a-camera position="5 3 5" rotation="-15 45 0"></a-camera>
+    <a-camera position="5 3 5" rotation="-15 45 0"></a-camera>
+
  <!--load assets into engine -->
     <a-assets>
          <a-asset-item id="girlRider" src="assets/girlRider.gltf"></a-asset-item>
@@ -15,19 +19,26 @@
          <a-asset-item id="reins" src="assets/reins.gltf"></a-asset-item>
          <a-asset-item id="terrain" src="assets/terrain.gltf"></a-asset-item>
     </a-assets>
+
  <!-- place assets in scene as entities -->
 
-    <a-entity gltf-model="#girlRider" position="0 0 0" shadow="cast: true"></a-entity>
-    <a-entity gltf-model="#birdRun" position="0 0 0" shadow="cast: true"></a-entity>
-    <a-entity gltf-model="#reins" position="0 0 0" shadow="cast: true"></a-entity>
-    <a-entity gltf-model="#terrain" position="0 0 0" shadow="cast: true"></a-entity>
+ <a-entity>  <!-- Grandparent entity -->
+  <a-animation
+    attribute="rotation"
+    easing="linear"
+    dur="60000"
+    to="0 360 0"
+    repeat="indefinite">
+  </a-animation>
+  <a-entity rotation="0 0 0">        <!-- Parent entity -->
+    <a-entity gltf-model="#girlRider" position="0 1 0"></a-entity>
+    <a-entity gltf-model="#birdRun" position="0 1 0"></a-entity>
+    <a-entity gltf-model="#reins" position="0 1 0"></a-entity>
+    <a-entity gltf-model="#terrain" position="0 1 0" ></a-entity>
+  </a-entity>
+</a-entity>
 
-     <!-- lighting -->
-     <a-light type:"spot" castShadow:"true" intensity="2" position="0 9 0" rotation="-40 -20 80"></a-light>
-     <a-light type:"spot" castShadow:"true" intensity=".5" position="4 2 0" rotation="0 90 80"></a-light>
 
-  sky box
-    <a-sky color="#808080"></a-sky>
  <!-- close out scene -->
    </a-scene>
 
