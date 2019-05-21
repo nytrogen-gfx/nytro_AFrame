@@ -2,14 +2,11 @@
 <html>
 
 <head>
- <script src="https://rawgit.com/aframevr/aframe/master/dist/aframe-master.min.js"></script>
-
+ <script src="https://aframe.io/releases/0.7.1/aframe.min.js"></script>
 
 </head>
 
 <body>
-
-<a-scene inspector="https://cdn.jsdelivr.net/gh/aframevr/aframe-inspector@master/dist/aframe-inspector.min.js">
 
  <!-- Place camera at ground level (will be overridden by VR devices) -->
  <a-camera position="0 1.6 .8"></a-camera>
@@ -25,7 +22,7 @@
  <a-entity gltf-model="#birdRun" position"0 0 0"></a-entity>
  <a-entity gltf-model="#reins" position"0 0 0"></a-entity>
  <a-entity gltf-model="#terrain" position"0 0 0"></a-entity>
- 
+
  <a-sky color="#ffffff"></a-sky>
 
 </a-scene>
