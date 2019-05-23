@@ -7,14 +7,39 @@
   <body>
      <!-- Open a scene  - add fog -->
     <a-scene>
-  <a-entity environment="preset: forest; dressingAmount: 500"></a-entity>
+
+      <a-light type="ambient" color="#445451"></a-light>
+
+      <a-light type="point" intensity="2" position="2 100 4"></a-light>
+
+      <a-plane src="#groundTexture" position="0 0 0" rotation="-90 0 0" width="10" height="100"
+  repeat="50 50"></a-plane>
+
+
+  <a-sky src="#skyTexture"></a-sky>
+
+
 
     <!-- camera -->
-    <a-camera position="5 3 5" rotation="-15 45 0"></a-camera>
+    <a-camera position="0 3 5" rotation="-15 0 0"></a-camera>
 
  <!--load assets into engine -->
+ <a-assets>
+
+   <img id="skyTexture"
+     src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
+   <img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
+ </a-assets>
+
+
+
+
     <a-assets>
          <a-asset-item id="blockMuseumHall" src="assets/blockMuseumHall.gltf"></a-asset-item>
+    </a-assets>
+
+    <a-assets>
+      <img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
     </a-assets>
 
  <!-- place assets in scene as entities -->
@@ -22,7 +47,7 @@
  <a-entity>  <!-- Grandparent entity -->
 
   <a-entity rotation="0 0 0">        <!-- Parent entity -->
-    <a-entity gltf-model="#blockMuseumHall" position="0 1 0"></a-entity>
+    <a-entity gltf-model="#blockMuseumHall" position="0 0 0"></a-entity>
   </a-entity>
 </a-entity>
 
